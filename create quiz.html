@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contribute</title>
+    <link rel="stylesheet" type="text/css" href="create quiz.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contribute</h1>
+        <form action="create quiz.php" method="post">
+            <label for="question">Question:</label>
+            <input type="text" id="question" name="question" required>
+            <label for="option1">Option 1:</label>
+            <input type="text" id="option1" name="option1" required>
+            <label for="option2">Option 2:</label>
+            <input type="text" id="option2" name="option2" required>
+            <label for="option3">Option 3:</label>
+            <input type="text" id="option3" name="option3" required>
+            <label for="option4">Option 4:</label>
+            <input type="text" id="option4" name="option4" required>
+            <label for="answer">Correct Answer (1-4):</label>
+            <input type="number" id="answer" name="answer" min="1" max="4" required>
+            <p id="error-message" style="color: rgb(241, 233, 233);"></p>
+            <input type="submit" value="Add Question" id="add-question-btn">
+        </form>
+    </div>
+
+    <script>
+        var form = document.querySelector('form');
+
+        form.addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'create quiz.php', true);
+
+
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+
+                    form.reset();
+
+
+                    var errorMessage = document.getElementById('error-message');
+                    errorMessage.textContent = 'Question added successfully.';
+                } else {
+
+                    var errorMessage = document.getElementById('error-message');
+                    errorMessage.textContent = 'Error occurred while adding the question.';
+                }
+            };
+
+            var formData = new FormData(form);
+            xhr.send(formData);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+    background-image: url(background3.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-size: 20;
+    text-decoration: none;
+    padding: 100px 80px;
+    display: inline-block;
+    border: solid;
+    border-radius: 5px;
+    border-color: white;
+    transition: 1s;
+    border-color: rgb(242, 11, 11);
+}
+
+.box:hover {
+    color: #f9efef;
+    text-decoration: none;
+    box-shadow: 0 0 50px #d62d0f;
+}
